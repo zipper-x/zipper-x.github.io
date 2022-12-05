@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Muenstain</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height">
+    <link href="https://fonts.cdnfonts.com/css/underwood-champion" rel="stylesheet">
+    <link rel="shortcut icon" href="neo.png">
+    <script src="https://code.jquery.com/jquery-1.7.2.js"></script>
+  </head>
+  <style media="screen">
+  a {
+    text-decoration: none;
+    color: #8bf092;
+  }
+  .shadow {
+    text-shadow: 0px 10px 10px green;
+  -webkit-background-clip: text;
+     -moz-background-clip: text;
+          background-clip: text;
+  }
+  </style>
+  <body style="
+    position: relative;
+    font-family: Helvetica_Regular,Arial,sans-serif;
+    background: black;
+    color: #8bf092;
+    font-size: 14px;
+    line-height: 1;
+  ">
+<div style="text-align: center; width: 100%; margin-top: -15px;">
+  <div style="position: fixed; text-align: center;width: 100%;">
+    <h1 class="shadow">coming soon MUENSTAIN</h1><!--<a href="https://muenstain.com/" target="_blank"> MUENSTAIN</a>--->
+    <h1 class="shadow"><a href="https://andrii-kaplia.lansentdien.eu/" target="_blank">ANDRII KAPLIA</a></h1>
+    <h1 class="shadow"><a href="https://lask.lansentdien.eu/" target="_blank">LASK</a></h1>
+    <h1 class="shadow"><a href="http://top-films.muenstain.com/" target="_blank">TOP FILMS</a></h1>
+  </div>
+<canvas id="q" width="250%" height="800">Sorry Browser Won't Support</canvas>
+</div>
+<script type="text/javascript">
+  $(document).ready(function () {
+  var s = window.screen;
+  var width = 700;
+  var height = 800;
+  var yPositions = Array(300).join(0).split('');
+  var ctx = q.getContext('2d');
+
+  var draw = function () {
+    ctx.fillStyle = 'rgba(0,0,0,.1)';
+    ctx.fillRect(0, 0, width, height);
+    ctx.fillStyle = '#0F0';
+    ctx.font = '10pt Georgia';
+    yPositions.map(function (y, index) {
+      text = String.fromCharCode(1e2 + Math.random() * 33);
+      x = (index * 10) + 10;
+      q.getContext('2d').fillText(text, x, y);
+      if (y > 100 + Math.random() * 1e4) {
+        yPositions[index] = 0;
+      } else {
+        yPositions[index] = y + 10;
+      }
+    });
+  };
+  RunMatrix();
+
+  function RunMatrix() {
+    if (typeof Game_Interval != "undefined") clearInterval(Game_Interval);
+    Game_Interval = setInterval(draw, 33);
+  }
+
+  function StopMatrix() {
+    clearInterval(Game_Interval);
+  }
+  //setInterval(draw, 33);
+});
+</script>
+  </body>
+</html>
